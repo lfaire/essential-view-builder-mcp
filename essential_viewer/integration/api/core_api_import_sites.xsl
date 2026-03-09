@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="2.0" xpath-default-namespace="http://protege.stanford.edu/xml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xalan="http://xml.apache.org/xslt" xmlns:pro="http://protege.stanford.edu/xml" xmlns:eas="http://www.enterprise-architecture.org/essential" xmlns:functx="http://www.functx.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ess="http://www.enterprise-architecture.org/essential/errorview">
+    <xsl:include href="../../common/core_utilities.xsl"/>
+	<xsl:include href="../../common/core_js_functions.xsl"/>
+	<xsl:output method="text" encoding="UTF-8"/>
+	<xsl:param name="param1"/> 
+	
+    <xsl:variable name="sites" select="/node()/simple_instance[type = 'Site']"/>
+    <xsl:variable name="countries" select="/node()/simple_instance[type = 'Geographic_Region']"/>
+	<xsl:key name="location_key" match="/node()/simple_instance[type=('Geographic_Location','Geographic_Region')]" use="name"/>
+	<xsl:key name="geo_key" match="/node()/simple_instance[type=('GeoCode')]" use="name"/>
+	 
+	<!--
+		* Copyright © 2008-2019 Enterprise Architecture Solutions Limited.
+	 	* This file is part of Essential Architecture Manager, 
+	 	* the Essential Architecture Meta Model and The Essential Project.
+		*
+		* Essential Architecture Manager is free software: you can redistribute it and/or modify
+		* it under the terms of the GNU General Public License as published by
+		* the Free Software Foundation, either version 3 of the License, or
+		* (at your option) any later version.
+		*
+		* Essential Architecture Manager is distributed in the hope that it will be useful,
+		* but WITHOUT ANY WARRANTY; without even the implied warranty of
+		* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+		* GNU General Public License for more details.
+		*
+		* You should have received a copy of the GNU General Public License
+		* along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+		* 
+	-->
+	<!-- 03.09.2019 JP  Created	 -->
+	 
+	<xsl:template match="knowledge_base">
+		{"sites":[<xsl:apply-templates select="$sites" mode="sites"><xsl:sort select="own_slot_value[slot_reference='name']/value" order="ascending"/></xsl:apply-templates>],
+		"countries":[<xsl:apply-templates select="$countries" mode="countries"><xsl:sort select="own_slot_value[slot_reference='name']/value" order="ascending"/></xsl:apply-templates>],"version":"614"}
+	</xsl:template>
+
+	
+<xsl:template match="node()" mode="sites">
+	<xsl:variable name="thiscountries" select="$countries[name=current()/own_slot_value[slot_reference='site_geographic_location']/value]"/>
+	{"id":"<xsl:value-of select="eas:getSafeJSString(current()/name)"/>",
+	<xsl:variable name="thisloc" select="key('location_key', current()/own_slot_value[slot_reference = 'site_geographic_location']/value)"/>	
+	<xsl:variable name="thisgeo" select="key('geo_key', $thisloc/own_slot_value[slot_reference = ('gl_geocode','gr_region_centrepoint')]/value)"/>	
+	<xsl:variable name="combinedMap" as="map(*)" select="map{
+		'name': string(translate(translate(current()/own_slot_value[slot_reference = ('name')]/value,'}',')'),'{',')')),
+		'description': string(translate(translate(current()/own_slot_value[slot_reference = ('description')]/value,'}',')'),'{',')')),	
+		'long': string(translate(translate($thisgeo/own_slot_value[slot_reference = 'geocode_longitude']/value, '}', ')'), '{', ')')),
+		'lat': string(translate(translate($thisgeo/own_slot_value[slot_reference = 'geocode_latitude']/value, '}', ')'), '{', ')'))
+	
+		}" />
+		<xsl:variable name="resultCombined" select="serialize($combinedMap, map{'method':'json', 'indent':true()})" />
+		<xsl:value-of select="substring-before(substring-after($resultCombined,'{'),'}')"/>
+	<xsl:if test="$thiscountries">,
+		"countries":[<xsl:for-each select="$thiscountries">{ <xsl:variable name="combinedMap" as="map(*)" select="map{
+			'name': string(translate(translate(current()/own_slot_value[slot_reference = ('name')]/value,'}',')'),'{',')'))
+			}" />
+			<xsl:variable name="resultCombined" select="serialize($combinedMap, map{'method':'json', 'indent':true()})" />
+			<xsl:value-of select="substring-before(substring-after($resultCombined,'{'),'}')"/>,<xsl:call-template name="RenderSecurityClassificationsJSONForInstance"><xsl:with-param name="theInstance" select="current()"/></xsl:call-template>}<xsl:if test="position()!=last()">,</xsl:if></xsl:for-each>]</xsl:if>,<xsl:call-template name="RenderSecurityClassificationsJSONForInstance"><xsl:with-param name="theInstance" select="current()"/></xsl:call-template>}<xsl:if test="position()!=last()">,</xsl:if>
+	</xsl:template>	
+	<xsl:template match="node()" mode="countries">
+		{"id":"<xsl:value-of select="eas:getSafeJSString(current()/name)"/>",
+		<xsl:variable name="combinedMap" as="map(*)" select="map{
+			'name': string(translate(translate(current()/own_slot_value[slot_reference = ('name')]/value,'}',')'),'{',')'))
+			}" />
+			<xsl:variable name="resultCombined" select="serialize($combinedMap, map{'method':'json', 'indent':true()})" />
+			<xsl:value-of select="substring-before(substring-after($resultCombined,'{'),'}')"/>
+		}<xsl:if test="position()!=last()">,</xsl:if>
+</xsl:template>	
+</xsl:stylesheet>
