@@ -1,0 +1,11 @@
+{
+  "migrated_at": "2026-03-11T18:16:56.602896",
+  "workspace_id": "ws_f2aa93feecc9f5a2",
+  "workspace_path": "/Users/adiaz/Desktop/Proyectos/essential-viewer-builder-mcp/essential-view-builder-mcp",
+  "data_dir_size_before": 0,
+  "data_dir_size_after": 0,
+  "version": "v1",
+  "note": "Marker created without prune - fresh workspace",
+  "prune_skipped": true,
+  "reason": "fresh_workspace"
+}

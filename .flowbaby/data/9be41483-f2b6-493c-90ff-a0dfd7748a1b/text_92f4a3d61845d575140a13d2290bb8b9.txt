@@ -1,0 +1,36 @@
+<!-- Template: v1.1 -->
+# Conversation Summary: Security profile dashboard view
+
+**Metadata:**
+- Topic ID: 6049f6de83550c3a
+- Session ID: N/A
+- Plan ID: N/A
+- Status: DecisionRecord
+- Created: 2026-03-11T22:30:38.028Z
+- Source Created: 2026-03-11T22:30:38.028Z
+- Updated: 2026-03-11T22:30:38.028Z
+
+## Context
+Reworked the staged CISO dashboard XSL in output/ciso_app_security_dashboard.xsl so it is centered on the Application_Provider_Security_Profile class instead of generic application KPI data. The repository did not expose a standard documented v2.0 API for this class, but essential_viewer/application/core_el_cia_data.xsl revealed the authoritative slot model: sec_profile_of_element, CIA ratings and risk impacts, RBAC/MFA/SSO usage, authentication methods, access review frequency, internal/external flags, and encryption-at-rest. Implemented a self-contained view that emits securityProfiles JSON inline from XSL by resolving enumeration names and element styles, then enriches rows with busCapAppMartApps application metadata for names, lifecycle status, and regulation counts. Validation passed with xmllint and editor error checking.
+
+## Key Decisions
+- Use inline XSL-generated security profile data rather than relying on an undocumented or unregistered API.
+- Keep busCapAppMartApps only as enrichment for application metadata and lifecycle context.
+- Stage the file in output/ but retain deployment-oriented include paths expected for an eventual move into the viewer application folder.
+
+## Rationale
+- The API catalogue did not list an Application Provider Security Profile dataset, so a fetcher-only implementation would not be deployable without extra registration work.
+- core_el_cia_data.xsl already encoded the exact slot mappings and style lookups for this class, reducing guesswork and property risk.
+- Joining the inline security profile dataset to a documented app mart API preserves v2.0 compatibility where it exists while keeping the view genuinely centered on the requested class.
+
+## Open Questions
+(none)
+
+## Next Steps
+(none)
+
+## References
+(none)
+
+## Time Scope
+

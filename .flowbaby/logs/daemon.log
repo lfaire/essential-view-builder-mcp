@@ -1,0 +1,35 @@
+2026-03-11T18:16:44 [INFO] Daemon starting for workspace: /Users/adiaz/Desktop/Proyectos/essential-viewer-builder-mcp/essential-view-builder-mcp
+2026-03-11T18:16:44 [INFO] Bridge environment configured: BridgeEnv: workspace=/Users/adiaz/Desktop/Proyectos/essential-viewer-builder-mcp/essential-view-builder-mcp, ontology=/Users/adiaz/.vscode/extensions/flowbaby.flowbaby-0.7.5/bridge/ontology.ttl (exists=True), resolver=rdflib, strategy=fuzzy, cache=true/fs, llm=amazon.nova-lite-v1:0, embedding=bedrock/amazon.titan-embed-text-v2:0, dims=1024
+2026-03-11T18:16:44 [INFO] Ontology configuration: path=/Users/adiaz/.vscode/extensions/flowbaby.flowbaby-0.7.5/bridge/ontology.ttl, resolver=rdflib, strategy=fuzzy, exists=True
+2026-03-11T18:16:44 [INFO] Cache configuration: CACHING=true, CACHE_BACKEND=fs
+2026-03-11T18:16:44 [INFO] Initializing Cognee SDK...
+2026-03-11T18:50:09 [INFO] Daemon starting for workspace: /Users/adiaz/Desktop/Proyectos/essential-viewer-builder-mcp/essential-view-builder-mcp
+2026-03-11T18:50:09 [INFO] Bridge environment configured: BridgeEnv: workspace=/Users/adiaz/Desktop/Proyectos/essential-viewer-builder-mcp/essential-view-builder-mcp, ontology=/Users/adiaz/.vscode/extensions/flowbaby.flowbaby-0.7.5/bridge/ontology.ttl (exists=True), resolver=rdflib, strategy=fuzzy, cache=true/fs, llm=amazon.nova-lite-v1:0, embedding=bedrock/amazon.titan-embed-text-v2:0, dims=1024
+2026-03-11T18:50:09 [INFO] Ontology configuration: path=/Users/adiaz/.vscode/extensions/flowbaby.flowbaby-0.7.5/bridge/ontology.ttl, resolver=rdflib, strategy=fuzzy, exists=True
+2026-03-11T18:50:09 [INFO] Cache configuration: CACHING=true, CACHE_BACKEND=fs
+2026-03-11T18:50:09 [INFO] Initializing Cognee SDK...
+2026-03-11T18:50:15 [INFO] Cognee SDK initialized in 6.23s
+2026-03-11T18:50:15 [INFO] Daemon ready, waiting for requests...
+2026-03-11T19:20:15 [INFO] Shutdown requested - setting graceful termination flag
+2026-03-11T19:20:15 [INFO] Shutdown flag set - exiting main loop gracefully
+2026-03-11T19:20:15 [INFO] Main loop exited - daemon shutting down
+2026-03-11T19:30:38 [INFO] Daemon starting for workspace: /Users/adiaz/Desktop/Proyectos/essential-viewer-builder-mcp/essential-view-builder-mcp
+2026-03-11T19:30:38 [INFO] Bridge environment configured: BridgeEnv: workspace=/Users/adiaz/Desktop/Proyectos/essential-viewer-builder-mcp/essential-view-builder-mcp, ontology=/Users/adiaz/.vscode/extensions/flowbaby.flowbaby-0.7.5/bridge/ontology.ttl (exists=True), resolver=rdflib, strategy=fuzzy, cache=true/fs, llm=amazon.nova-lite-v1:0, embedding=bedrock/amazon.titan-embed-text-v2:0, dims=1024
+2026-03-11T19:30:38 [INFO] Ontology configuration: path=/Users/adiaz/.vscode/extensions/flowbaby.flowbaby-0.7.5/bridge/ontology.ttl, resolver=rdflib, strategy=fuzzy, exists=True
+2026-03-11T19:30:38 [INFO] Cache configuration: CACHING=true, CACHE_BACKEND=fs
+2026-03-11T19:30:38 [INFO] Initializing Cognee SDK...
+2026-03-11T19:30:39 [INFO] Cognee SDK initialized in 1.85s
+2026-03-11T19:30:39 [INFO] Daemon ready, waiting for requests...
+2026-03-11T19:30:39 [INFO] Ingest: mode=add-only
+2026-03-11T19:30:52 [INFO] Cognify: operation_id=eb39afcb-35fb-4bb7-b867-588e212ac48d, dataset=ws_f2aa93feecc9f5a2
+2026-03-11T19:31:07 [INFO] Cognify completed in 14786ms
+2026-03-11T20:00:52 [INFO] Shutdown requested - setting graceful termination flag
+2026-03-11T20:00:52 [INFO] Shutdown flag set - exiting main loop gracefully
+2026-03-11T20:00:52 [INFO] Main loop exited - daemon shutting down
+2026-03-14T12:28:46 [INFO] Daemon starting for workspace: /Users/adiaz/Desktop/Proyectos/essential-viewer-builder-mcp/essential-view-builder-mcp
+2026-03-14T12:28:46 [INFO] Bridge environment configured: BridgeEnv: workspace=/Users/adiaz/Desktop/Proyectos/essential-viewer-builder-mcp/essential-view-builder-mcp, ontology=/Users/adiaz/.vscode/extensions/flowbaby.flowbaby-0.7.5/bridge/ontology.ttl (exists=True), resolver=rdflib, strategy=fuzzy, cache=true/fs, llm=amazon.nova-lite-v1:0, embedding=bedrock/amazon.titan-embed-text-v2:0, dims=1024
+2026-03-14T12:28:46 [INFO] Ontology configuration: path=/Users/adiaz/.vscode/extensions/flowbaby.flowbaby-0.7.5/bridge/ontology.ttl, resolver=rdflib, strategy=fuzzy, exists=True
+2026-03-14T12:28:46 [INFO] Cache configuration: CACHING=true, CACHE_BACKEND=fs
+2026-03-14T12:28:46 [INFO] Initializing Cognee SDK...
+2026-03-14T12:28:48 [INFO] Cognee SDK initialized in 1.63s
+2026-03-14T12:28:48 [INFO] Daemon ready, waiting for requests...

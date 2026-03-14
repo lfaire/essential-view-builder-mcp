@@ -1,0 +1,7 @@
+{
+  "acknowledged_at": "2026-03-14T12:28:48.422461",
+  "dataset_name": "ws_f2aa93feecc9f5a2",
+  "workspace_path": "/Users/adiaz/Desktop/Proyectos/essential-viewer-builder-mcp/essential-view-builder-mcp",
+  "migration_performed_by_this_process": false,
+  "global_marker_location": "/Users/adiaz/Desktop/Proyectos/essential-viewer-builder-mcp/essential-view-builder-mcp/.flowbaby/system/.migration_v1_complete"
+}
